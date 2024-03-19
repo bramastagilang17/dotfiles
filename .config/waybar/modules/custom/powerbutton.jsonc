@@ -1,0 +1,6 @@
+{
+    "custom/powerbutton": {
+        "on-click": "~/.config/sway/scripts/powermenu.sh",
+        "format": "⏻  "
+    }
+}

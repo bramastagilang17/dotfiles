@@ -1,0 +1,120 @@
+/**
+ * App Window
+ */
+@define-color bg_color rgba(0, 0, 0, .8);
+@define-color window_bg @bg_color;
+@define-color window_border_color #414141;
+@define-color prefs_backgroud #999;
+
+/**
+ * Input
+ */
+@define-color selected_bg_color #198cff;
+/*@define-color selected_bg_color rgba(75,80,83,.7);*/
+@define-color selected_fg_color #d5eaff;
+@define-color input_color #ddd;
+@define-color caret_color darker(@input_color);
+
+/**
+ * Result items
+ */
+@define-color item_name #ddd;
+@define-color item_text #999;
+@define-color item_box_selected #285C99;
+@define-color item_text_selected #99ccff;
+@define-color item_name_selected #eee;
+@define-color item_shortcut_color #777;
+@define-color item_shortcut_shadow darker(@bg_color);
+@define-color item_shortcut_color_sel #99ccff;
+@define-color item_shortcut_shadow_sel darker(@item_box_selected);
+
+
+* {
+    font-family: 'JetBrains Mono Nerd Font';
+    font-size: 14px;
+}
+
+/* Window */
+window {
+    margin: 0px;
+    padding: 10px;
+    border: 3px solid @window_border_color;
+    border-radius: 7px;
+    background-color: @window_bg;
+    /* animation: slideIn 0.5s ease-in-out both; */
+}
+
+/* Slide In */
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Inner Box */
+#inner-box {
+    /* margin: 5px;
+    padding: 10px; */
+    border: none;
+    background-color: @bg_color;
+    /* animation: fadeIn 0.5s ease-in-out both; */
+}
+
+/* Fade In */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Outer Box */
+#outer-box {
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    background-color: @bg_color;
+}
+
+/* Scroll */
+#scroll {
+    margin: 0px;
+    padding: 10px;
+    border: none;
+}
+
+/* Input */
+#input {
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    color: @input_color;
+    background-color: @bg_color;
+    /* animation: fadeIn 0.5s ease-in-out both; */
+}
+
+/* Text */
+#text {
+    margin: 2.5px;
+    padding: 5px;
+    border: none;
+    color: @item_text;
+    /* animation: fadeIn 0.5s ease-in-out both; */
+}
+
+/* Selected Entry */
+#entry:selected {
+    background-color: alpha (@selected_bg_color, 0.9);
+    color: @selected_fg_color;
+}
+
+#entry:selected #text {
+    color: @item_name_selected;
+}

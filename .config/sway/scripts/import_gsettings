@@ -1,0 +1,36 @@
+#!/bin/sh
+
+# Set the 'config' variable to the path of the GTK settings configuration file.
+# If the environment variable 'XDG_CONFIG_HOME' is set, use its value; otherwise, use the default path '$HOME/.config'.
+config="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-3.0/settings.ini"
+
+# Check if the configuration file exists. If not, exit the script with an error code (1).
+if [ ! -f "$config" ]; then
+    exit 1
+fi
+
+# Define the GNOME schema for desktop interface settings.
+gnome_schema="org.gnome.desktop.interface"
+
+# Extract the value of the 'gtk-theme-name' setting from the configuration file.
+# The 'grep' command searches for the line containing 'gtk-theme-name' and extracts the value after the '=' sign.
+gtk_theme="$(grep 'gtk-theme-name' "$config" | cut -d'=' -f2)"
+
+# Extract the value of the 'gtk-icon-theme-name' setting from the configuration file.
+icon_theme="$(grep 'gtk-icon-theme-name' "$config" | cut -d'=' -f2)"
+
+# Extract the value of the 'gtk-cursor-theme-name' setting from the configuration file.
+cursor_theme="$(grep 'gtk-cursor-theme-name' "$config" | cut -d'=' -f2)"
+
+# Extract the value of the 'gtk-font-name' setting from the configuration file.
+font_name="$(grep 'gtk-font-name' "$config" | cut -d'=' -f2)"
+
+# Use 'gsettings' to set the GNOME desktop interface settings:
+# - 'gtk-theme': Set the GTK theme to the extracted 'gtk_theme' value.
+# - 'icon-theme': Set the icon theme to the extracted 'icon_theme' value.
+# - 'cursor-theme': Set the cursor theme to the extracted 'cursor_theme' value.
+# - 'font-name': Set the font name to the extracted 'font_name' value.
+gsettings set "$gnome_schema" gtk-theme "$gtk_theme"
+gsettings set "$gnome_schema" icon-theme "$icon_theme"
+gsettings set "$gnome_schema" cursor-theme "$cursor_theme"
+gsettings set "$gnome_schema" font-name "$font_name"

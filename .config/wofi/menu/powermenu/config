@@ -1,0 +1,6 @@
+hide_scroll=true
+insensitive=true
+show=dmenu
+width=400
+lines=5
+prompt=Select power options:
