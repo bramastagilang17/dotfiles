@@ -2,29 +2,57 @@
 exec_always ~/.config/sway/scripts/import_gsettings
 
 # Set inner/outer gaps
-gaps inner 2
-gaps outer 2
+gaps inner 3
+gaps outer 3
 
 # Hide titlebar on windows:
 default_border pixel 1
 
 # Default Font
-font pango:JetBrainsMonoNerdFont Regular 9
+font pango:SFProDisplay Regular 9
 
 # Thin borders:
 smart_borders on
 
 # Set wallpaper:
-exec swaybg -i ~/.config/sway/wallpaper.jpg
+exec swaybg -i ~/.config/sway/wallpaper_white.jpg -m fill
 
 # Title format for windows
 for_window [shell="xdg_shell"] title_format "%title (%app_id)"
 for_window [shell="x_wayland"] title_format "%class - %title"
 
-# class                 border  bground text    indicator child_border
-client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
-client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
-client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
-client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
-client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
-client.background       #F8F8F2
+# Theming
+set $rosewater #dc8a78
+set $flamingo  #dd7878
+set $pink      #ea76cb
+set $mauve     #8839ef
+set $red       #d20f39
+set $maroon    #e64553
+set $peach     #fe640b
+set $yellow    #df8e1d
+set $green     #40a02b
+set $teal      #179299
+set $sky       #04a5e5
+set $sapphire  #209fb5
+set $blue      #1e66f5
+set $lavender  #7287fd
+set $text      #4c4f69
+set $subtext1  #5c5f77
+set $subtext0  #6c6f85
+set $overlay2  #7c7f93
+set $overlay1  #8c8fa1
+set $overlay0  #9ca0b0
+set $surface2  #acb0be
+set $surface1  #bcc0cc
+set $surface0  #ccd0da
+set $base      #eff1f5
+set $mantle    #e6e9ef
+set $crust     #dce0e8
+
+# target                 title     bg    text   indicator  border
+client.focused           $lavender $base $text  $rosewater $lavender
+client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
+client.unfocused         $overlay0 $base $text  $rosewater $overlay0
+client.urgent            $peach    $base $peach $overlay0  $peach
+client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
+client.background        $base

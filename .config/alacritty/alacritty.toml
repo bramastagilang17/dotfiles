@@ -1,8 +1,8 @@
 [window]
-opacity = 0.75
+opacity = 0.975
 blur = true
 [font]
-normal = { family = "Fira Mono Nerd Font", style = "Regular" }
+normal = { family = "MesloLGM Nerd Font", style = "Regular" }
 size = 11
 [cursor]
 style = { shape = "Underline", blinking = "Always" }

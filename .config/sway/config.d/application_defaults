@@ -8,12 +8,17 @@
 assign [class="Code"] 3
 for_window [class="Code"] focus
 
-assign [class="vlc"] 5
-for_window [class="vlc"] focus, fullscreen enable, inhibit_idle fullscreen
+for_window [instance="vlc"] floating enable, resize set width 75ppt height 50ppt, inhibit_idle fullscreen
+for_window [app_id="mpv"] floating enable, resize set width 75ppt height 50ppt, inhibit_idle fullscreen
 
 assign [app_id="thunar"] 7
 for_window [app_id="thunar"] focus
 
+# file selector
+for_window [app_id="xdg-desktop-portal-gtk"] floating enable, resize set width 75ppt height 70ppt
+
+# ristretto photo viewer
+for_window [app_id="ristretto"] floating enable, resize set width 90ppt height 90ppt
 
 # set floating (nontiling)for apps needing it:
 for_window [class="Yad" instance="yad"] floating enable
@@ -22,7 +27,7 @@ for_window [app_id="blueman-manager"] floating enable
 
 # set floating (nontiling) for special apps:
 for_window [class="Xsane" instance="xsane"] floating enable
-for_window [app_id="pavucontrol" ] floating enable, resize set width 50 ppt height 50 ppt
+for_window [app_id="pavucontrol" ] floating enable, resize set width 75 ppt height 75 ppt
 for_window [class="qt5ct" instance="qt5ct"] floating enable, resize set width 60 ppt height 50 ppt
 for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
 for_window [app_id="nm-connection-editor"] floating enable
